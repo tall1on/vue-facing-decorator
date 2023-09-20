@@ -79,7 +79,7 @@ function buildComponent(cons: Cons, arg: ComponentOption, extend?: any): any {
     const option = ComponentOption(cons, extend)
     const slot = obtainSlot(cons.prototype)
     Object.keys(arg).reduce<Record<string, any>>((option, name: string) => {
-        if (['options', 'modifier', 'emits', 'setup', 'provide'].includes(name)) {
+        if (['options', 'modifier', 'methods', 'emits', 'setup', 'provide'].includes(name)) {
             return option
         }
         option[name] = arg[name as keyof ComponentOption]
